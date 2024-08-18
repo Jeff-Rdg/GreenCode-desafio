@@ -61,7 +61,8 @@ fun vehicleRegister() {
     val vehicleType = readln().toInt()
 
     if (vehicleType > 3 || vehicleType <= 0) {
-        throw IllegalArgumentException("parametro [$vehicleType] inválido, tente novamente")
+        println("parametro [$vehicleType] inválido, tente novamente")
+        return menu()
     }
 
     print("Informe a quilometragem realizada em km: ")
@@ -73,8 +74,10 @@ fun vehicleRegister() {
 }
 
 fun vehicleEach() {
-    for (value in result) {
-        println(value.toString())
+    if (result.size == 0) {
+        println("não existem itens à exibir.")
+    } else {
+        result.forEach { println(it.toString()) }
     }
     menu()
 }
